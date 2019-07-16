@@ -1,0 +1,34 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1563044122988",
+    "Statement": [
+        {
+            "Sid": "Stmt1563043283792",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::bucket-kishan/MySecretFolder/*"
+        },
+        {
+            "Sid": "Stmt156304322345",
+            "Action": [
+                "s3:DeleteObject",
+                "s3:PutObject"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::bucket-kishan/*",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::488599217855:root"
+                ]
+            }
+        },
+        {
+            "Sid": "Stmt1563044119683",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::bucket-kishan/*"
+        }
+    ]
+}
